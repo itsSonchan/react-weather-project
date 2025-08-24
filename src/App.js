@@ -4,31 +4,44 @@ import "bootstrap/dist/css/bootstrap.css";
 export default function App() {
   return (
     <div className="App">
-      <form>
-        <input type="search" placeholder="Enter a city..."></input>
-        <input type="submit" value="Search"></input>
+      <form className="row">
+        <input
+          className="col-8 search-input "
+          type="search"
+          placeholder="Enter a city..."
+        ></input>
+        <input
+          type="submit"
+          value="Search"
+          className="col-3 submit-input"
+        ></input>
       </form>
-      <h1>Hamburg</h1>
-      <div className="row">
-        <div className="col-6">
-          <ul>
-            <li>Sunday 11:08</li>
-            <li>Sunny</li>
-            <li>
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/1894/1894536.png"
-                alt="weather icon"
-                width="80px"
-              ></img>
-            </li>
-          </ul>
-        </div>
-        <div className="col-6">
-          <ul>
-            <li>Precipitation: 20%</li>
-            <li>Humidity: 80%</li>
-            <li>Wind: 3 km/h</li>
-          </ul>
+      <div className="info-section">
+        <h1>Hamburg</h1>
+        <div className="row">
+          <div className="col-6">
+            <ul>
+              <li>Sunday 11:08</li>
+              <li>Sunny</li>
+              <li>
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/1894/1894536.png"
+                  alt="weather icon"
+                  width="80px"
+                ></img>
+                <span className="current-temp">
+                  18<span className="unit">°C</span>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div className="col-6">
+            <ul>
+              <li>Precipitation: 20%</li>
+              <li>Humidity: 80%</li>
+              <li>Wind: 3 km/h</li>
+            </ul>
+          </div>
         </div>
       </div>
       <footer>

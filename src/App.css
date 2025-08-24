@@ -1,0 +1,65 @@
+.App {
+  background-color: #c3d0a8;
+  margin: 200px auto;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 800px;
+}
+.App .submit-input {
+  background-color: #f0eee2;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  color: #6a7f3f;
+}
+.App .search-input {
+  background-color: #f0eee2;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+::placeholder {
+  color: #6a7f3f;
+}
+.App form {
+  margin-left: 20px;
+  margin-top: 15px;
+}
+.App footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 15px;
+}
+.App a {
+  color: #6a7f3f;
+  text-decoration: none;
+}
+.App .info-section {
+  margin-left: 150px;
+  margin-top: 30px;
+  line-height: 2;
+}
+.App li {
+  list-style: none;
+}
+.App h1 {
+  margin-bottom: 30px;
+}
+.App .current-temp {
+  font-size: 60px;
+}
+.App .unit {
+  font-size: 18px;
+  position: relative;
+  bottom: 30px;
+}
+.App img {
+  position: relative;
+  bottom: 18px;
+  margin-right: 15px;
+}
+.App ul {
+  padding-left: 0;
+}
