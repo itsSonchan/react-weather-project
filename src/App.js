@@ -2,28 +2,44 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 import { useState } from "react";
+import WeatherInfo from "./WeatherInfo";
 
-export default function App() {
+export default function App(props) {
   const [activeSearch, setActiveSearch] = useState(false);
   const [weather, setWeather] = useState({});
+  const [city, setCity] = useState(props.defaultcity);
 
   function handleResponse(response) {
-    console.log(response.data);
     setWeather({
       temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
       city: response.data.city,
       humidity: response.data.temperature.humidity,
       condition: response.data.condition.description,
-      date: "Sunday 11:08",
+      date: new Date(response.data.time * 1000),
     });
     setActiveSearch(true);
   }
+  function search() {
+    const url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=4d6d3a603f2o058afbtc1e8fa6515357`;
+    axios.get(url).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
   if (activeSearch) {
     return (
       <div className="App">
-        <form className="row">
+        <form className="row" onSubmit={handleSubmit}>
           <input
+            onChange={handleCityChange}
             className="col-8 search-input "
             type="search"
             placeholder="Enter a city..."
@@ -34,34 +50,7 @@ export default function App() {
             className="col-3 submit-input"
           ></input>
         </form>
-        <div className="info-section">
-          <h1>{weather.city}</h1>
-          <div className="row">
-            <div className="col-6">
-              <ul>
-                <li>{weather.date}</li>
-                <li className="text-capitalize">{weather.condition}</li>
-                <li>
-                  <img
-                    src="https://cdn-icons-png.flaticon.com/512/1894/1894536.png"
-                    alt="weather icon"
-                    width="80px"
-                  ></img>
-                  <span className="current-temp">
-                    {Math.round(weather.temperature)}
-                    <span className="unit">°C</span>
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="col-6">
-              <ul>
-                <li>Humidity: {Math.round(weather.humidity)}%</li>
-                <li>Wind: {Math.round(weather.wind)} km/h</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <WeatherInfo data={weather} />
         <footer>
           This project was coded by{" "}
           <a
@@ -84,7 +73,6 @@ export default function App() {
       </div>
     );
   } else {
-    const url = `https://api.shecodes.io/weather/v1/current?query=Hamburg&key=4d6d3a603f2o058afbtc1e8fa6515357`;
-    axios.get(url).then(handleResponse);
+    search();
   }
 }
