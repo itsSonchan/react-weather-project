@@ -11,7 +11,7 @@ export default function App(props) {
 
   function handleResponse(response) {
     setWeather({
-      temperature: response.data.temperature.current,
+      celsius: response.data.temperature.current,
       wind: response.data.wind.speed,
       city: response.data.city,
       humidity: response.data.temperature.humidity,

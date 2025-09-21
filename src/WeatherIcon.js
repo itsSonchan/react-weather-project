@@ -1,4 +1,5 @@
 import react from "react";
+
 import ReactAnimatedWeather from "react-animated-weather";
 
 export default function WeatherIcon(props) {
@@ -21,6 +22,7 @@ export default function WeatherIcon(props) {
     "scattered clouds": "PARTLY_CLOUDY_DAY",
     thunderstorm: "CLOUDY",
     "heavy intensity rain": "SLEET",
+    "shower rain": "SLEET",
   };
   const defaults = {
     icon: stateMapping[props.data.condition],
