@@ -16,7 +16,7 @@ export default function App(props) {
       city: response.data.city,
       humidity: response.data.temperature.humidity,
       condition: response.data.condition.description,
-      date: new Date(response.data.time * 1000),
+      date: response.data.time,
     });
     setActiveSearch(true);
   }

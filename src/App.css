@@ -49,17 +49,22 @@
 }
 .App .current-temp {
   font-size: 60px;
+  position: relative;
+  bottom: 15px;
 }
 .App .unit {
   font-size: 18px;
   position: relative;
   bottom: 30px;
 }
-.App img {
-  position: relative;
-  bottom: 18px;
+.App canvas {
+  display: inline-block;
   margin-right: 15px;
 }
 .App ul {
   padding-left: 0;
+}
+.App .date {
+  font-size: 18px;
+  font-weight: 400;
 }
