@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 import { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
+import Forecast from "./Forecast";
 
 export default function App(props) {
   const [activeSearch, setActiveSearch] = useState(false);
@@ -14,6 +15,7 @@ export default function App(props) {
       celsius: response.data.temperature.current,
       wind: response.data.wind.speed,
       city: response.data.city,
+      country: response.data.country,
       humidity: response.data.temperature.humidity,
       condition: response.data.condition.description,
       date: response.data.time,
@@ -51,6 +53,7 @@ export default function App(props) {
           ></input>
         </form>
         <WeatherInfo data={weather} />
+        <Forecast data={weather} />
         <footer>
           This project was coded by{" "}
           <a

@@ -3,5 +3,5 @@ import moment from "moment";
 
 export default function FormattedDate(props) {
   let date = moment(props.date * 1000).format("dddd, MMMM Do");
-  return <div>{date}</div>;
+  return <div className="date">{date}</div>;
 }
