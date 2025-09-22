@@ -57,7 +57,7 @@
   position: relative;
   bottom: 45px;
 }
-.App img {
+.App .weather-icon {
   position: relative;
   bottom: 30px;
   margin-right: 20px;
@@ -72,9 +72,6 @@
 }
 .App .temp {
   display: inline-block;
-}
-.App .forecast-icon {
-  width: 70px;
 }
 .App .icon-and-temp {
   margin-top: 25px;
@@ -92,4 +89,16 @@
 }
 .App .date {
   margin-bottom: 15px;
+}
+.App .forecast-icon {
+  display: block;
+  margin: 20px auto 5px;
+}
+.App .forecast {
+  background-color: #5e783072;
+  padding: 20px 0px;
+  margin: 0px 30px 40px 30px;
+  border: dotted 2px #6a7f3f;
+  border-radius: 20px;
+  text-align: center;
 }

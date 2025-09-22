@@ -77,9 +77,23 @@ export default function WeatherIcon(props) {
   let hours = date.getHours();
   if (hours < 18 && hours > 6) {
     let icon = stateMappingDay[props.data.condition];
-    return <img src={icon} alt="weather icon" width="150px" />;
+    return (
+      <img
+        src={icon}
+        alt="weather icon"
+        className="weather-icon"
+        width="150px"
+      />
+    );
   } else {
     let icon = stateMappingNight[props.data.condition];
-    return <img src={icon} alt="weather icon" width="150px" />;
+    return (
+      <img
+        src={icon}
+        alt="weather icon"
+        className="weather-icon"
+        width="150px"
+      />
+    );
   }
 }
