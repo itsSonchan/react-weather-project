@@ -1,53 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
+import axios from "axios";
+import ForecastDay from "./ForecastDay";
+
 export default function Forecast(props) {
-  return (
-    <div className="row forecast justify-content-center gx-3">
-      <div className="col-2  ">
-        Mon, 22nd{" "}
-        <img
-          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/174/058/original/Unbenanntes_Projekt.png?1758541047"
-          alt="forecast icon"
-          className="forecast-icon"
-          width={80}
-        ></img>
+  const [forecastData, setforecastData] = useState(null);
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.data.city]);
+
+  function handleResponse(response) {
+    setLoaded(true);
+    setforecastData(response.data.daily);
+  }
+
+  if (loaded) {
+    return (
+      <div className="row forecast justify-content-center gx-3">
+        {forecastData.map(function (dailyForecast, index) {
+          if (index > 0 && index < 6) {
+            return (
+              <ForecastDay
+                key={index}
+                data={dailyForecast}
+                time={props.data.date}
+              />
+            );
+          } else {
+            return null;
+          }
+        })}
       </div>
-      <div className="col-2">
-        Tue, 23rd{" "}
-        <img
-          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/174/058/original/Unbenanntes_Projekt.png?1758541047"
-          alt="forecast icon"
-          className="forecast-icon"
-          width={80}
-        ></img>
-      </div>
-      <div className="col-2">
-        Wed, 24th{" "}
-        <img
-          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/174/058/original/Unbenanntes_Projekt.png?1758541047"
-          alt="forecast icon"
-          className="forecast-icon"
-          width={80}
-        ></img>
-      </div>
-      <div className="col-2">
-        Thu, 25th{" "}
-        <img
-          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/174/058/original/Unbenanntes_Projekt.png?1758541047"
-          alt="forecast icon"
-          className="forecast-icon"
-          width={80}
-        ></img>
-      </div>
-      <div className="col-2">
-        Fri, 26th{" "}
-        <img
-          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/174/058/original/Unbenanntes_Projekt.png?1758541047"
-          alt="forecast icon"
-          className="forecast-icon"
-          width={80}
-        ></img>
-      </div>
-    </div>
-  );
+    );
+  } else {
+    const url = `https://api.shecodes.io/weather/v1/forecast?query=${props.data.city}&key=4d6d3a603f2o058afbtc1e8fa6515357`;
+    axios.get(url).then(handleResponse);
+  }
 }

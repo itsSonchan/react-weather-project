@@ -4,6 +4,7 @@
   padding: 30px;
   border-radius: 10px;
   max-width: 800px;
+  color: #202e07;
 }
 .App .submit-input {
   background-color: #f0eee2;
@@ -92,7 +93,8 @@
 }
 .App .forecast-icon {
   display: block;
-  margin: 20px auto 5px;
+  margin: 15px auto 10px;
+  width: 90px;
 }
 .App .forecast {
   background-color: #5e783072;
@@ -101,4 +103,15 @@
   border: dotted 2px #6a7f3f;
   border-radius: 20px;
   text-align: center;
+}
+.App .question-cat {
+  display: block;
+  margin: 0 auto;
+}
+.App .error-field {
+  background-color: #5e783072;
+  padding: 20px 0px;
+  border: dotted 2px #6a7f3f;
+  border-radius: 20px;
+  margin: 40px 20px;
 }

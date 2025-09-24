@@ -1,7 +1,9 @@
 import React from "react";
 
-export default function WeatherIcon(props) {
+export default function ForecastIcon(props) {
   const stateMappingDay = {
+    "sky is clear":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/174/058/original/Unbenanntes_Projekt.png?1758541047",
     "clear sky":
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/174/058/original/Unbenanntes_Projekt.png?1758541047",
     "few clouds":
@@ -40,6 +42,8 @@ export default function WeatherIcon(props) {
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/174/065/original/Unbenanntes_Projekt_8.png?1758542672",
   };
   const stateMappingNight = {
+    "sky is clear":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/174/070/original/Unbenanntes_Projekt_15.png?1758543170",
     "clear sky":
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/174/070/original/Unbenanntes_Projekt_15.png?1758543170",
     "few clouds":
@@ -77,27 +81,13 @@ export default function WeatherIcon(props) {
     "thunderstorm with rain":
       "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/174/065/original/Unbenanntes_Projekt_8.png?1758542672",
   };
-  let date = new Date(props.data.date * 1000);
+  let date = new Date(props.time * 1000);
   let hours = date.getHours();
   if (hours < 18 && hours > 6) {
-    let icon = stateMappingDay[props.data.condition];
-    return (
-      <img
-        src={icon}
-        alt="weather icon"
-        className="weather-icon"
-        width="140px"
-      />
-    );
+    let icon = stateMappingDay[props.data.condition.description];
+    return <img src={icon} alt="forecast icon" className="forecast-icon" />;
   } else {
-    let icon = stateMappingNight[props.data.condition];
-    return (
-      <img
-        src={icon}
-        alt="weather icon"
-        className="weather-icon"
-        width="140px"
-      />
-    );
+    let icon = stateMappingNight[props.data.condition.description];
+    return <img src={icon} alt="forecast icon" className="forecast-icon" />;
   }
 }
