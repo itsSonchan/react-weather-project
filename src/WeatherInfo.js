@@ -13,7 +13,7 @@ export default function WeatherInfo(props) {
       <FormattedDate date={props.data.date} />
       <div className="today-info">
         <div className="row">
-          <div className="col-6">
+          <div className="col-md-6">
             <ul>
               <li className="icon-and-temp">
                 <WeatherIcon data={props.data} />
@@ -21,7 +21,7 @@ export default function WeatherInfo(props) {
               </li>
             </ul>
           </div>
-          <div className="col-6">
+          <div className="col-md-6">
             <ul className="right-side">
               <li className="text-capitalize">{props.data.condition}</li>
               <li>Humidity: {Math.round(props.data.humidity)}%</li>

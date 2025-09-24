@@ -1,5 +1,10 @@
+body {
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/174/136/original/pexels-i-layda-mutlu-61452084-32478366.jpg?1758696277");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .App {
-  background-color: #c3d0a8;
+  background-color: #9aa781d2;
   margin: 80px auto;
   padding: 30px;
   border-radius: 10px;
@@ -34,7 +39,7 @@
   font-size: 15px;
 }
 .App a {
-  color: #5e7830;
+  color: #49621e;
   text-decoration: none;
 }
 .App .info-section {
@@ -47,6 +52,7 @@
 }
 .App h1 {
   margin-bottom: 15px;
+  font-size: 40px;
 }
 .App .current-temp {
   font-size: 60px;
@@ -86,7 +92,7 @@
   border-radius: 20px;
   padding-top: 50px;
   margin: 0px 30px 40px 30px;
-  background-color: #5e783072;
+  background-color: #5e783095;
 }
 .App .date {
   margin-bottom: 15px;
@@ -97,7 +103,7 @@
   width: 90px;
 }
 .App .forecast {
-  background-color: #5e783072;
+  background-color: #5e783095;
   padding: 20px 0px;
   margin: 0px 30px 40px 30px;
   border: dotted 2px #6a7f3f;
@@ -109,9 +115,73 @@
   margin: 0 auto;
 }
 .App .error-field {
-  background-color: #5e783072;
+  background-color: #5e783095;
   padding: 20px 0px;
   border: dotted 2px #6a7f3f;
   border-radius: 20px;
   margin: 40px 20px;
+}
+@media screen and (max-width: 768px) {
+  body {
+    background-size: auto;
+  }
+  .App {
+    max-width: 500px;
+    padding: 10px;
+    margin: 50px 20px;
+  }
+  .App .submit-input {
+    max-width: 80px;
+    margin: 10px;
+  }
+  .App .search-input {
+    max-width: 150px;
+    margin: 10px;
+  }
+  .App h1 {
+    font-size: 28px;
+  }
+  .App .date {
+    font-size: 15px;
+  }
+  .App .right-side {
+    font-size: 16px;
+    margin-top: -15px;
+  }
+  .App .weather-icon {
+    width: 80px;
+  }
+  .App .current-temp {
+    font-size: 50px;
+  }
+  .App .today-info {
+    margin: 30px;
+    padding-top: 10px;
+  }
+  .App footer {
+    margin: 15px 35px;
+    font-size: 12px;
+  }
+  .App .forecast-icon {
+    width: 70px;
+  }
+  .App .forecast-temps {
+    margin-bottom: 15px;
+  }
+  .App .forecast-day {
+    border-bottom: dotted 2px #5d7036;
+
+    margin-top: 10px;
+  }
+  .App .unit {
+    font-size: 13px;
+    bottom: 42px;
+  }
+  .App .error-field h1 {
+    font-size: 20px;
+  }
+  .App .error-field img {
+    width: 200px;
+    margin: 30px auto;
+  }
 }
