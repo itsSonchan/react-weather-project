@@ -10,6 +10,17 @@ export default function App(props) {
   const [weather, setWeather] = useState({});
   const [city, setCity] = useState(props.defaultcity);
   const [error, setError] = useState(false);
+  const [checked, setChecked] = useState(false);
+  const [unit, SetUnit] = useState("Celsius");
+
+  function switchUnit() {
+    setChecked(!checked);
+    if (checked) {
+      SetUnit("Celsius");
+    } else {
+      SetUnit("fahrenheit");
+    }
+  }
 
   function handleResponse(response) {
     console.log(response.data);
@@ -20,6 +31,7 @@ export default function App(props) {
       setError(false);
       setWeather({
         celsius: response.data.temperature.current,
+        fahrenheit: (response.data.temperature.current * 9) / 5 + 32,
         wind: response.data.wind.speed,
         city: response.data.city,
         country: response.data.country,
@@ -47,6 +59,14 @@ export default function App(props) {
   if (activeSearch && error === false) {
     return (
       <div className="App">
+        <div className="toggle">
+          <span className="unit-label">°C</span>
+          <label className="switch">
+            <input type="checkbox" onChange={switchUnit} checked={checked} />
+            <span className="slider round"></span>
+          </label>
+          <span className="unit-label">°F</span>
+        </div>
         <form className="row" onSubmit={handleSubmit}>
           <input
             onChange={handleCityChange}
@@ -60,8 +80,8 @@ export default function App(props) {
             className="col-3 submit-input"
           ></input>
         </form>
-        <WeatherInfo data={weather} />
-        <Forecast data={weather} />
+        <WeatherInfo data={weather} unit={unit} />
+        <Forecast data={weather} unit={unit} />
         <footer>
           This project was coded by{" "}
           <a

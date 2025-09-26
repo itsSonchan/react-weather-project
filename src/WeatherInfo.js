@@ -2,9 +2,14 @@ import React from "react";
 
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
-import TemperatureConvert from "./TemperatureConvert";
 
 export default function WeatherInfo(props) {
+  let temperature = props.data.celsius;
+  if (props.unit === "Celsius") {
+    temperature = props.data.celsius;
+  } else {
+    temperature = props.data.fahrenheit;
+  }
   return (
     <div className="info-section">
       <h1>
@@ -17,7 +22,9 @@ export default function WeatherInfo(props) {
             <ul>
               <li className="icon-and-temp">
                 <WeatherIcon data={props.data} />
-                <TemperatureConvert data={props.data.celsius} />
+                <span className="current-temp">
+                  {Math.round(temperature)}°
+                </span>{" "}
               </li>
             </ul>
           </div>

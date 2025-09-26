@@ -25,6 +25,7 @@ export default function Forecast(props) {
                 key={index}
                 data={dailyForecast}
                 time={props.data.date}
+                unit={props.unit}
               />
             );
           } else {
