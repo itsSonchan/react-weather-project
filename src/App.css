@@ -61,7 +61,7 @@ body {
 }
 
 .App input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px #6a7f3f;
 }
 
 .App input:checked + .slider:before {
@@ -196,12 +196,12 @@ body {
     margin: 50px 20px;
   }
   .App .submit-input {
-    max-width: 80px;
-    margin: 10px;
+    width: 30%;
+    margin: 10px 10px 10px 5px;
   }
   .App .search-input {
-    max-width: 150px;
-    margin: 10px;
+    width: 50%;
+    margin: 10px 5px 10px 10px;
   }
   .App h1 {
     font-size: 28px;
@@ -248,5 +248,9 @@ body {
   .App .error-field img {
     width: 200px;
     margin: 30px auto;
+  }
+  .App .toggle {
+    text-align: center;
+    margin-right: 0;
   }
 }
